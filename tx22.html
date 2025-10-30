@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Tính lương nhân viên 2023</title>
+<style>
+  body { width: 450px; margin: auto; font-family: Arial; }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 5px; }
+  input { width: 95%; padding: 5px; }
+  button { width: 80px; padding: 6px; margin-top: 8px; }
+</style>
+</head>
+
+<body>
+<h2 style="text-align:center;">TÍNH LƯƠNG NHÂN VIÊN 2023</h2>
+
+<table border="1">
+<tr>
+  <td>Tên nhân viên</td>
+  <td><input id="ten"></td>
+</tr>
+<tr>
+  <td>Ngày công</td>
+  <td><input id="ngayCong" type="number"></td>
+</tr>
+<tr>
+  <td>Lương ngày</td>
+  <td><input id="luongNgay" type="number"></td>
+</tr>
+<tr>
+  <td>Số giờ làm/ngày</td>
+  <td><input id="gio" type="number"></td>
+</tr>
+<tr>
+  <td>Lương tháng</td>
+  <td><input id="luongThang" readonly></td>
+</tr>
+<tr>
+  <td>Xếp loại nhân viên</td>
+  <td><input id="loai" readonly></td>
+</tr>
+<tr>
+  <td>Thưởng</td>
+  <td><input id="thuong" readonly></td>
+</tr>
+<tr>
+  <td>Thực lĩnh</td>
+  <td><input id="thucLinh" readonly></td>
+</tr>
+</table>
+
+<br>
+<button onclick="tinh()">Tính tiền</button>
+<button onclick="xoa()">Xóa</button>
+
+<script>
+function tinh() {
+  let ngayCong = Number(document.getElementById('ngayCong').value);
+  let luongNgay = Number(document.getElementById('luongNgay').value);
+  let gio = Number(document.getElementById('gio').value);
+
+  // Tính lương tháng
+  let luongThang = ngayCong * luongNgay;
+
+  // Tính thêm giờ
+  if (gio > 8) {
+    let gioThem = (gio - 8) * 20000 * ngayCong; 
+    luongThang += gioThem;
+  }
+
+  // Xếp loại & thưởng
+  let loai = "";
+  let thuong = 0;
+
+  if (ngayCong >= 25) {
+    loai = "A";
+    thuong = 500000;
+  } else if (ngayCong >= 20) {
+    loai = "B";
+    thuong = 300000;
+  } else {
+    loai = "C";
+    thuong = 0;
+  }
+
+  // Thực lĩnh
+  let thucLinh = luongThang + thuong;
+
+  // Xuất ra form
+  document.getElementById('luongThang').value = luongThang;
+  document.getElementById('loai').value = loai;
+  document.getElementById('thuong').value = thuong;
+  document.getElementById('thucLinh').value = thucLinh;
+}
+
+function xoa() {
+  document.querySelectorAll("input").forEach(i => i.value = "");
+}
+</script>
+
+</body>
+</html>
