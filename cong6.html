@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    border-bottom: 1px solid black;
+}
+.logo img{
+    height: 50px;
+}
+.search{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.search input{
+    padding: 6px;
+    width: 200px;
+}
+.cart{
+    background-color: #FF3399;
+    color: white;
+    padding: auto;
+}
+.cart:hover{
+    background-color: yellow;
+    color: red;
+}
+nav{
+    background-color: black;
+}
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+.cha{
+    position: relative;
+}
+nav ul li a{
+    display: block;
+    text-decoration: none;
+    padding: 12px 20px;
+    color: white;
+}
+nav ul li a:hover{
+    background-color: #FF3399;
+}
+nav ul li ul{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    list-style-type: none;
+    display: none;
+    min-width: 200px;
+}
+nav ul li ul li a{
+    color: black;
+    padding: 10px;
+}
+nav ul li:hover ul{
+    display: block;
+}
+.content{
+    width: 100%;
+    padding: 20px 50px;
+}
+.toolbar{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.product-list{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.product{
+    width: 250px;
+    background-color: #003366;
+    text-align: center;
+                overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.product img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.info{
+    color: white;
+}
+.info h3:hover{
+    color: yellow;
+}
+.new-price{
+    color: white;
+}
+.old-price{
+    color: red;
+    text-decoration: line-through;
+}
+.product:hover{
+    background-color: red;
+    color: yellow;
+}
+</style>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Screenshot 2025-09-26 144044.png" alt="">
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search">
+            <select name="" id="">
+                <option value="">Catogories</option>
+            </select>
+        </div>
+        <div class="cart">
+            0-Item($)-$0.00
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li class="cha"><a href="">books</a>
+                <ul>
+                    <li><a href="">men</a></li>
+                    <li><a href="">men</a></li>
+                    <li><a href="">men</a></li>
+                </ul>
+            </li>
+            <li><a href="">books</a></li>
+            <li><a href="">books</a></li>
+            <li><a href="">books</a></li>
+            <li><a href="">books</a></li>
+            <li><a href="">books</a></li>
+            <li><a href="">books</a></li>
+            <li><a href="">books</a></li>
+            <li><a href="">books</a></li>
+            <li><a href="">books</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div class="toolbar">
+            <select name="" id="">
+                <option value="">Default</option>
+            </select>
+            <input type="text" value="9">
+        </div>
+        <div class="product-list">
+            <div class="product">
+                <img src="Screenshot 2025-09-26 144044.png" alt="">
+                <div class="info">
+                    <h3>Apple cinema</h3>
+                    <p class="price">
+                        <span class="new-price">$98</span>
+                        <span class="old-price">$122</span>
+                    </p>
+                </div>
+            </div>
+            <div class="product">
+                <img src="Screenshot 2025-09-26 144044.png" alt="">
+                <div class="info">
+                    <h3>Apple cinema</h3>
+                    <p class="price">
+                        <span class="new-price">$98</span>
+                        <span class="old-price">$122</span>
+                    </p>
+                </div>
+            </div>
+            <div class="product">
+                <img src="Screenshot 2025-09-26 144044.png" alt="">
+                <div class="info">
+                    <h3>Apple cinema</h3>
+                    <p class="price">
+                        <span class="new-price">$98</span>
+                        <span class="old-price">$122</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
