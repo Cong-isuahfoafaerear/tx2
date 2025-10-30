@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            height: 500px;
+            align-items: center;
+        }
+
+        table tr {
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        table tr:last-child td {
+            text-align: center;
+        }
+
+        table th {
+            font-size: 33px;
+        }
+
+        table tr>td {
+            font-size: 24px;
+            height: 100%;
+            flex: 1;
+            align-content: center;
+        }
+
+        table tr>td>.box {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        table tr>td>.box>input {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            flex: 1;
+            font-size: 24px;
+        }
+    </style>
+    <table>
+        <tr>
+            <th colspan="2">
+                TINH LUONG NHAN VIEN 2023
+            </th>
+        </tr>
+        <tr>
+            <td colspan="1">Ten nhan vien</td>
+            <td>
+                <div class="box">
+                    <input type="text" id="tenNV">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="1">Ngay Cong</td>
+            <td>
+                <div class="box">
+                    <input type="text" id="NC">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="1">Luong Ngay</td>
+            <td>
+                <div class="box">
+                    <input type="text" id="LN">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="1">Luong Thang</td>
+            <td>
+                <div class="box">
+                    <input type="text" id="LT">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="1">Xep loai nhan vien</td>
+            <td>
+                <div class="box">
+                    <input type="text" id="XL">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="1">Thuong</td>
+            <td>
+                <div class="box">
+                    <input type="text" id="Thuong">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="1">Thuc linh</td>
+            <td>
+                <div class="box">
+                    <input type="text" id="TL">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="button" id="Tinh tien" value="Tinh tien" onclick="tong()">
+                <input type="button" id="Xoa" value="Xoa" onclick="xoa()">
+            </td>
+        </tr>
+    </table>
+    <script>
+        function tong() {
+            let ngayCong = parseInt(document.getElementById("NC").value);
+            let luongNgay = 8 * 20000;
+            document.getElementById("LN").value = luongNgay;
+            let luongThang = luongNgay * ngayCong;
+            document.getElementById("LT").value = luongThang;
+            let thuong = 0;
+            if (ngayCong > 25) {
+                document.getElementById("Thuong").value = 500000;
+                document.getElementById("XL").value = "A";
+                thuong += 500000;
+            } else if (ngayCong >= 20) {
+                document.getElementById("Thuong").value = 300000;
+                document.getElementById("XL").value = "B";
+                thuong += 300000;
+            } else {
+                document.getElementById("Thuong").value = 0;
+                document.getElementById("XL").value="C";
+                
+            }
+
+            document.getElementById("TL").value = luongThang + thuong;
+        }
+
+        function xoa() {
+            document.getElementById("tenNV").value = "";
+            document.getElementById("NC").value = "";
+            document.getElementById("LN").value = "";
+            document.getElementById("LT").value = "";
+            document.getElementById("XL").value = "";
+            document.getElementById("Thuong").value = "";
+            document.getElementById("TL").value = "";
+        }
+    </script>
+</body>
+
+</html>
